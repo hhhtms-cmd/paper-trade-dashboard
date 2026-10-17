@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>波段交易实验 · 虚拟盘看板</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#0f1420;color:#e8ecf4;padding:16px;max-width:960px;margin:0 auto}
+h1{font-size:20px;margin-bottom:2px}
+.sub{color:#8b93a7;font-size:12px;margin-bottom:14px}
+.banner{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.pill{padding:6px 12px;border-radius:20px;font-size:13px;background:#1c2436;border:1px solid #2a3550}
+.pill.ok{color:#4ade80;border-color:#14532d}
+.pill.warn{color:#fbbf24;border-color:#713f12}
+.pill.bad{color:#f87171;border-color:#7f1d1d}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.card{background:#161d2e;border:1px solid #232d45;border-radius:12px;padding:12px}
+.card .k{font-size:11px;color:#8b93a7;margin-bottom:4px}
+.card .v{font-size:20px;font-weight:700}
+.up{color:#4ade80}.down{color:#f87171}.mut{color:#8b93a7}
+.panel{background:#161d2e;border:1px solid #232d45;border-radius:12px;padding:14px;margin-bottom:14px}
+.panel h2{font-size:15px;margin-bottom:10px;color:#c7d0e4}
+canvas{width:100%;height:220px;display:block}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px 6px;text-align:left;border-bottom:1px solid #232d45}
+th{color:#8b93a7;font-weight:500;font-size:12px}
+.empty{color:#8b93a7;font-size:13px;padding:8px 0}
+details{margin-bottom:14px}
+summary{cursor:pointer;color:#8b93a7;font-size:13px}
+.rules{font-size:13px;color:#aab4cc;line-height:1.9;background:#161d2e;border:1px solid #232d45;border-radius:12px;padding:14px}
+.foot{color:#5b6478;font-size:11px;text-align:center;margin-top:18px;line-height:1.8}
+.tag{font-size:11px;padding:2px 8px;border-radius:10px;background:#1c2436;border:1px solid #2a3550;color:#8b93a7}
+</style>
+</head>
+<body>
+<h1>📈 波段交易实验 · 虚拟盘看板</h1>
+<div class="sub" id="meta">加载中…</div>
+<div class="banner" id="banner"></div>
+
+<div class="cards">
+  <div class="card"><div class="k">当前净值</div><div class="v" id="equity">–</div></div>
+  <div class="card"><div class="k">累计收益</div><div class="v" id="ret">–</div></div>
+  <div class="card"><div class="k">最大回撤</div><div class="v down" id="dd">–</div></div>
+  <div class="card"><div class="k">持仓 / 现金</div><div class="v" style="font-size:16px" id="pos">–</div></div>
+</div>
+
+<div class="panel"><h2>净值曲线</h2><canvas id="chart"></canvas></div>
+
+<div class="panel"><h2>当前持仓</h2><div id="positions"></div></div>
+
+<div class="panel"><h2>待买入（下个交易日开盘）</h2><div id="pending"></div></div>
+
+<div class="panel"><h2>最近平仓</h2><div id="legs"></div></div>
+
+<div class="panel"><h2>统计</h2><div id="stats" style="font-size:13px;line-height:2;color:#aab4cc"></div></div>
+
+<details><summary>策略规则（v1e_r05，点击展开）</summary>
+<div class="rules" style="margin-top:8px">
+• 标的：纳斯达克100成分股 · $1,000虚拟资金 · 无杠杆<br>
+• 买入：收盘&gt;50日均线 ＋ 回踩21日均线(±2%)企稳 ＋ 放量；按3个月涨幅排序；财报周不买<br>
+• 仓位：单笔风险0.5%（震荡市0.25%），最多3只（震荡2只），同行业只买一只<br>
+• 卖出：硬止损-3% → +9%卖一半 → 剩下收盘跌破21日均线清仓<br>
+• 熔断：从峰值回撤15%全平并停止 · QQQ三态过滤（牛/震荡/熊） · X-ray止损率暂停
+</div></details>
+
+<div class="foot">数据每日美股收盘后更新 · 纯虚拟盘记录，不构成投资建议<br>大道至简：一招鲜，吃遍天</div>
+
+<script>
+fetch('data.json').then(r=>r.json()).then(d=>{
+  document.getElementById('meta').textContent =
+    '策略 '+d.version+' · 更新于 '+d.updated_at+(d.price_ok?'':' · 持仓价格更新失败');
+  const stCls = d.status==='running'?'ok':(d.status==='xray_paused'?'warn':'bad');
+  document.getElementById('banner').innerHTML =
+    '<span class="pill '+stCls+'">'+d.status_cn+'</span>'+
+    '<span class="pill">市场：'+d.regime_cn+'</span>'+
+    (d.stats.xray_cooldown_left>0?'<span class="pill warn">X-ray冷却剩余'+d.stats.xray_cooldown_left+'天</span>':'');
+  document.getElementById('equity').textContent = '$'+d.equity.toLocaleString();
+  const re=document.getElementById('ret');
+  re.textContent=(d.total_return_pct>=0?'+':'')+d.total_return_pct+'%';
+  re.className='v '+(d.total_return_pct>=0?'up':'down');
+  document.getElementById('dd').textContent=d.max_drawdown_pct+'%';
+  document.getElementById('pos').textContent=d.positions.length+'只 · $'+d.cash.toLocaleString();
+
+  // 净值曲线
+  const cv=document.getElementById('chart'),ctx=cv.getContext('2d');
+  const W=cv.width=cv.offsetWidth*2,H=cv.height=440;
+  const pts=d.equity_curve,vals=pts.map(p=>p[1]);
+  const mn=Math.min(...vals,1000)*0.995,mx=Math.max(...vals,1000)*1.005;
+  const X=i=>20+i*(W-40)/Math.max(1,pts.length-1),Y=v=>H-30-(v-mn)/(mx-mn)*(H-60);
+  ctx.strokeStyle='#2a3550';ctx.beginPath();ctx.moveTo(20,Y(1000));ctx.lineTo(W-20,Y(1000));ctx.stroke();
+  const gr=ctx.createLinearGradient(0,0,0,H);gr.addColorStop(0,'rgba(74,222,128,.25)');gr.addColorStop(1,'rgba(74,222,128,0)');
+  ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(X(i),Y(p[1])):ctx.moveTo(X(0),Y(p[1])));
+  ctx.strokeStyle='#4ade80';ctx.lineWidth=3;ctx.stroke();
+  ctx.lineTo(X(pts.length-1),H-20);ctx.lineTo(X(0),H-20);ctx.closePath();ctx.fillStyle=gr;ctx.fill();
+  ctx.fillStyle='#8b93a7';ctx.font='20px sans-serif';
+  ctx.fillText('$'+mx.toFixed(0),24,28);ctx.fillText('$'+mn.toFixed(0),24,H-8);
+  if(pts.length){const l=pts[pts.length-1];ctx.fillStyle='#e8ecf4';ctx.fillText(l[0],W-140,H-8);}
+
+  // 持仓
+  const pos=document.getElementById('positions');
+  pos.innerHTML=d.positions.length?'<table><tr><th>股票</th><th>行业</th><th>成本</th><th>现价</th><th>盈亏</th><th>止损</th><th>目标(+9%)</th><th>天数</th></tr>'+
+    d.positions.map(p=>'<tr><td><b>'+p.ticker+'</b>'+(p.half_taken?' <span class="tag">已止盈半仓</span>':'')+'</td><td>'+p.sector+'</td><td>$'+p.entry_price+'</td><td>$'+p.cur_price+'</td><td class="'+(p.pnl_pct>=0?'up':'down')+'">'+(p.pnl_pct>=0?'+':'')+p.pnl_pct+'%</td><td>$'+p.stop_price+'</td><td>$'+p.target_price+'</td><td>'+p.days_held+'</td></tr>').join('')+'</table>'
+    :'<div class="empty">当前空仓</div>';
+
+  // 待买入
+  const pen=document.getElementById('pending');
+  pen.innerHTML=d.pending.length?'<table><tr><th>股票</th><th>信号日</th><th>行业</th></tr>'+
+    d.pending.map(p=>'<tr><td><b>'+p.ticker+'</b></td><td>'+p.signal_date+'</td><td>'+p.sector+'</td></tr>').join('')+'</table>'
+    :'<div class="empty">暂无待买入信号</div>';
+
+  // 平仓
+  const lg=document.getElementById('legs');
+  lg.innerHTML=d.recent_legs.length?'<table><tr><th>股票</th><th>平仓日</th><th>R倍数</th><th>收益</th><th>原因</th></tr>'+
+    d.recent_legs.map(l=>'<tr><td><b>'+l.ticker+'</b></td><td>'+l.exit_date+'</td><td class="'+(l.R>=0?'up':'down')+'">'+(l.R>=0?'+':'')+l.R+'R</td><td class="'+(l.return_pct>=0?'up':'down')+'">'+(l.return_pct>=0?'+':'')+l.return_pct+'%</td><td>'+l.reason+'</td></tr>').join('')+'</table>'
+    :'<div class="empty">暂无平仓记录</div>';
+
+  // 统计
+  const s=d.stats;
+  document.getElementById('stats').innerHTML=
+    '累计平仓 '+s.legs+' 笔 · 胜率 '+(s.win_rate==null?'–':s.win_rate+'%')+' · 平均 '+ (s.avg_R==null?'–':(s.avg_R>=0?'+':'')+s.avg_R+'R')+'<br>'+
+    '累计信号 '+s.signals+' 个 · X-ray触发 '+s.xray_triggers+' 次 · 暂停 '+s.xray_paused_days+' 天<br>'+
+    '市场状态天数：牛市 '+s.regime_days.bull+' · 震荡 '+s.regime_days.chop+' · 熊市 '+s.regime_days.bear;
+}).catch(e=>{document.getElementById('meta').textContent='数据加载失败：'+e;});
+</script>
+</body>
+</html>

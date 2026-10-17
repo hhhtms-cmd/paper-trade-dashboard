@@ -1,0 +1,48 @@
+{
+ "updated_at": "2026-10-17 16:59 美东",
+ "version": "v1e_r05",
+ "status": "running",
+ "status_cn": "运行中",
+ "regime": "chop",
+ "regime_cn": "震荡",
+ "equity": 1000.0,
+ "total_return_pct": 0.0,
+ "max_drawdown_pct": 0,
+ "peak_equity": 1000.0,
+ "cash": 1000.0,
+ "positions": [],
+ "pending": [
+  {
+   "ticker": "MSFT",
+   "signal_date": "2026-10-16",
+   "sector": "Technology"
+  },
+  {
+   "ticker": "FAST",
+   "signal_date": "2026-10-16",
+   "sector": "Industrials"
+  }
+ ],
+ "recent_legs": [],
+ "stats": {
+  "legs": 0,
+  "win_rate": null,
+  "avg_R": null,
+  "signals": 3,
+  "xray_triggers": 0,
+  "xray_paused_days": 0,
+  "xray_cooldown_left": 0,
+  "regime_days": {
+   "bull": 0,
+   "chop": 1,
+   "bear": 0
+  }
+ },
+ "equity_curve": [
+  [
+   "2026-10-16",
+   1000.0
+  ]
+ ],
+ "price_ok": true
+}
