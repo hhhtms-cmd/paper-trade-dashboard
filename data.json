@@ -1,40 +1,42 @@
 {
- "updated_at": "2026-10-17 16:59 美东",
+ "updated_at": "2026-10-20 17:34 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
  "regime": "chop",
  "regime_cn": "震荡",
- "equity": 1000.0,
- "total_return_pct": 0.0,
+ "equity": 1000.81,
+ "total_return_pct": 0.08,
  "max_drawdown_pct": 0,
- "peak_equity": 1000.0,
- "cash": 1000.0,
- "positions": [],
- "pending": [
+ "peak_equity": 1000.81,
+ "cash": 916.67,
+ "positions": [
   {
-   "ticker": "MSFT",
-   "signal_date": "2026-10-16",
-   "sector": "Technology"
-  },
-  {
-   "ticker": "FAST",
-   "signal_date": "2026-10-16",
-   "sector": "Industrials"
+   "ticker": "GILD",
+   "sector": "Healthcare",
+   "shares": 0.5376,
+   "entry_price": 155.01,
+   "cur_price": 155.01,
+   "pnl_pct": 0.0,
+   "stop_price": 150.36,
+   "target_price": 168.96,
+   "half_taken": false,
+   "days_held": 0
   }
  ],
+ "pending": [],
  "recent_legs": [],
  "stats": {
   "legs": 0,
   "win_rate": null,
   "avg_R": null,
-  "signals": 3,
+  "signals": 4,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 0,
-   "chop": 1,
+   "chop": 3,
    "bear": 0
   }
  },
@@ -42,7 +44,15 @@
   [
    "2026-10-16",
    1000.0
+  ],
+  [
+   "2026-10-19",
+   1000.0
+  ],
+  [
+   "2026-10-20",
+   1000.81
   ]
  ],
- "price_ok": true
+ "price_ok": false
 }
