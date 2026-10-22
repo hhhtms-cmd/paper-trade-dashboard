@@ -1,13 +1,13 @@
 {
- "updated_at": "2026-10-20 17:34 美东",
+ "updated_at": "2026-10-21 16:30 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
  "regime": "chop",
  "regime_cn": "震荡",
- "equity": 1000.81,
- "total_return_pct": 0.08,
- "max_drawdown_pct": 0,
+ "equity": 999.22,
+ "total_return_pct": -0.08,
+ "max_drawdown_pct": -0.16,
  "peak_equity": 1000.81,
  "cash": 916.67,
  "positions": [
@@ -21,22 +21,28 @@
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": false,
-   "days_held": 0
+   "days_held": 1
   }
  ],
- "pending": [],
+ "pending": [
+  {
+   "ticker": "TXN",
+   "signal_date": "2026-10-21",
+   "sector": "Technology"
+  }
+ ],
  "recent_legs": [],
  "stats": {
   "legs": 0,
   "win_rate": null,
   "avg_R": null,
-  "signals": 4,
+  "signals": 9,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 0,
-   "chop": 3,
+   "chop": 4,
    "bear": 0
   }
  },
@@ -52,6 +58,10 @@
   [
    "2026-10-20",
    1000.81
+  ],
+  [
+   "2026-10-21",
+   999.22
   ]
  ],
  "price_ok": false
