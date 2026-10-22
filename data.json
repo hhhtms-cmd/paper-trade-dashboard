@@ -1,15 +1,15 @@
 {
- "updated_at": "2026-10-21 16:30 美东",
+ "updated_at": "2026-10-22 16:30 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
  "regime": "chop",
  "regime_cn": "震荡",
- "equity": 999.22,
- "total_return_pct": -0.08,
+ "equity": 999.71,
+ "total_return_pct": -0.03,
  "max_drawdown_pct": -0.16,
  "peak_equity": 1000.81,
- "cash": 916.67,
+ "cash": 915.2,
  "positions": [
   {
    "ticker": "GILD",
@@ -21,28 +21,36 @@
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": false,
-   "days_held": 1
+   "days_held": 2
   }
  ],
  "pending": [
   {
-   "ticker": "TXN",
-   "signal_date": "2026-10-21",
+   "ticker": "PLTR",
+   "signal_date": "2026-10-22",
    "sector": "Technology"
   }
  ],
- "recent_legs": [],
+ "recent_legs": [
+  {
+   "ticker": "TXN",
+   "exit_date": "2026-10-22",
+   "R": -0.586,
+   "return_pct": -1.757,
+   "reason": "趋势出清(<21DMA)"
+  }
+ ],
  "stats": {
-  "legs": 0,
-  "win_rate": null,
-  "avg_R": null,
-  "signals": 9,
+  "legs": 1,
+  "win_rate": 0.0,
+  "avg_R": -0.586,
+  "signals": 16,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 0,
-   "chop": 4,
+   "chop": 5,
    "bear": 0
   }
  },
@@ -62,6 +70,10 @@
   [
    "2026-10-21",
    999.22
+  ],
+  [
+   "2026-10-22",
+   999.71
   ]
  ],
  "price_ok": false
