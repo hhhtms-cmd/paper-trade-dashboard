@@ -1,36 +1,42 @@
 {
- "updated_at": "2026-10-22 16:30 美东",
+ "updated_at": "2026-10-27 16:29 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
  "regime": "chop",
  "regime_cn": "震荡",
- "equity": 999.71,
- "total_return_pct": -0.03,
+ "equity": 1002.27,
+ "total_return_pct": 0.23,
  "max_drawdown_pct": -0.16,
- "peak_equity": 1000.81,
- "cash": 915.2,
+ "peak_equity": 1002.27,
+ "cash": 831.89,
  "positions": [
   {
    "ticker": "GILD",
    "sector": "Healthcare",
    "shares": 0.5376,
    "entry_price": 155.01,
-   "cur_price": 155.01,
-   "pnl_pct": 0.0,
+   "cur_price": 159.08,
+   "pnl_pct": 2.62,
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": false,
-   "days_held": 2
-  }
- ],
- "pending": [
+   "days_held": 7
+  },
   {
    "ticker": "PLTR",
-   "signal_date": "2026-10-22",
-   "sector": "Technology"
+   "sector": "Technology",
+   "shares": 0.427,
+   "entry_price": 195.12,
+   "cur_price": 198.73,
+   "pnl_pct": 1.85,
+   "stop_price": 189.26,
+   "target_price": 212.68,
+   "half_taken": false,
+   "days_held": 4
   }
  ],
+ "pending": [],
  "recent_legs": [
   {
    "ticker": "TXN",
@@ -44,13 +50,13 @@
   "legs": 1,
   "win_rate": 0.0,
   "avg_R": -0.586,
-  "signals": 16,
+  "signals": 31,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 0,
-   "chop": 5,
+   "chop": 8,
    "bear": 0
   }
  },
@@ -74,7 +80,19 @@
   [
    "2026-10-22",
    999.71
+  ],
+  [
+   "2026-10-23",
+   999.79
+  ],
+  [
+   "2026-10-26",
+   1002.1
+  ],
+  [
+   "2026-10-27",
+   1002.27
   ]
  ],
- "price_ok": false
+ "price_ok": true
 }
