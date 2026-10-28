@@ -1,12 +1,12 @@
 {
- "updated_at": "2026-10-27 16:29 美东",
+ "updated_at": "2026-10-28 16:29 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
- "regime": "chop",
- "regime_cn": "震荡",
- "equity": 1002.27,
- "total_return_pct": 0.23,
+ "regime": "bull",
+ "regime_cn": "牛市",
+ "equity": 1001.51,
+ "total_return_pct": 0.15,
  "max_drawdown_pct": -0.16,
  "peak_equity": 1002.27,
  "cash": 831.89,
@@ -16,27 +16,33 @@
    "sector": "Healthcare",
    "shares": 0.5376,
    "entry_price": 155.01,
-   "cur_price": 159.08,
-   "pnl_pct": 2.62,
+   "cur_price": 159.2,
+   "pnl_pct": 2.7,
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": false,
-   "days_held": 7
+   "days_held": 8
   },
   {
    "ticker": "PLTR",
    "sector": "Technology",
    "shares": 0.427,
    "entry_price": 195.12,
-   "cur_price": 198.73,
-   "pnl_pct": 1.85,
+   "cur_price": 196.81,
+   "pnl_pct": 0.87,
    "stop_price": 189.26,
    "target_price": 212.68,
    "half_taken": false,
-   "days_held": 4
+   "days_held": 5
   }
  ],
- "pending": [],
+ "pending": [
+  {
+   "ticker": "ORLY",
+   "signal_date": "2026-10-28",
+   "sector": "Consumer Cyclical"
+  }
+ ],
  "recent_legs": [
   {
    "ticker": "TXN",
@@ -50,12 +56,12 @@
   "legs": 1,
   "win_rate": 0.0,
   "avg_R": -0.586,
-  "signals": 31,
+  "signals": 38,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
-   "bull": 0,
+   "bull": 1,
    "chop": 8,
    "bear": 0
   }
@@ -92,6 +98,10 @@
   [
    "2026-10-27",
    1002.27
+  ],
+  [
+   "2026-10-28",
+   1001.51
   ]
  ],
  "price_ok": true
