@@ -1,49 +1,51 @@
 {
- "updated_at": "2026-10-28 16:29 美东",
+ "updated_at": "2026-10-29 16:29 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
- "regime": "bull",
- "regime_cn": "牛市",
- "equity": 1001.51,
- "total_return_pct": 0.15,
- "max_drawdown_pct": -0.16,
+ "regime": "chop",
+ "regime_cn": "震荡",
+ "equity": 999.66,
+ "total_return_pct": -0.03,
+ "max_drawdown_pct": -0.26,
  "peak_equity": 1002.27,
- "cash": 831.89,
+ "cash": 910.63,
  "positions": [
   {
    "ticker": "GILD",
    "sector": "Healthcare",
    "shares": 0.5376,
    "entry_price": 155.01,
-   "cur_price": 159.2,
-   "pnl_pct": 2.7,
+   "cur_price": 155.01,
+   "pnl_pct": 0.0,
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": false,
-   "days_held": 8
-  },
-  {
-   "ticker": "PLTR",
-   "sector": "Technology",
-   "shares": 0.427,
-   "entry_price": 195.12,
-   "cur_price": 196.81,
-   "pnl_pct": 0.87,
-   "stop_price": 189.26,
-   "target_price": 212.68,
-   "half_taken": false,
-   "days_held": 5
+   "days_held": 9
   }
  ],
  "pending": [
   {
-   "ticker": "ORLY",
-   "signal_date": "2026-10-28",
-   "sector": "Consumer Cyclical"
+   "ticker": "MSFT",
+   "signal_date": "2026-10-29",
+   "sector": "Technology"
   }
  ],
  "recent_legs": [
+  {
+   "ticker": "ORLY",
+   "exit_date": "2026-10-29",
+   "R": -1.016,
+   "return_pct": -3.048,
+   "reason": "stop"
+  },
+  {
+   "ticker": "PLTR",
+   "exit_date": "2026-10-29",
+   "R": 0.206,
+   "return_pct": 0.617,
+   "reason": "趋势出清(<21DMA)"
+  },
   {
    "ticker": "TXN",
    "exit_date": "2026-10-22",
@@ -53,16 +55,16 @@
   }
  ],
  "stats": {
-  "legs": 1,
-  "win_rate": 0.0,
-  "avg_R": -0.586,
-  "signals": 38,
+  "legs": 3,
+  "win_rate": 33.3,
+  "avg_R": -0.465,
+  "signals": 47,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 1,
-   "chop": 8,
+   "chop": 9,
    "bear": 0
   }
  },
@@ -102,7 +104,11 @@
   [
    "2026-10-28",
    1001.51
+  ],
+  [
+   "2026-10-29",
+   999.66
   ]
  ],
- "price_ok": true
+ "price_ok": false
 }
