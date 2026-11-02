@@ -1,36 +1,42 @@
 {
- "updated_at": "2026-10-30 16:29 美东",
+ "updated_at": "2026-11-02 16:29 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
  "regime": "chop",
  "regime_cn": "震荡",
- "equity": 1001.29,
- "total_return_pct": 0.13,
+ "equity": 1000.96,
+ "total_return_pct": 0.1,
  "max_drawdown_pct": -0.26,
  "peak_equity": 1002.27,
- "cash": 955.41,
+ "cash": 871.97,
  "positions": [
   {
    "ticker": "GILD",
    "sector": "Healthcare",
    "shares": 0.2688,
    "entry_price": 155.01,
-   "cur_price": 155.01,
-   "pnl_pct": 0.0,
+   "cur_price": 170.33,
+   "pnl_pct": 9.88,
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": true,
-   "days_held": 10
-  }
- ],
- "pending": [
+   "days_held": 13
+  },
   {
    "ticker": "TSLA",
-   "signal_date": "2026-10-30",
-   "sector": "Consumer Cyclical"
+   "sector": "Consumer Cyclical",
+   "shares": 0.2061,
+   "entry_price": 404.94,
+   "cur_price": 403.82,
+   "pnl_pct": -0.28,
+   "stop_price": 392.79,
+   "target_price": 441.39,
+   "half_taken": false,
+   "days_held": 0
   }
  ],
+ "pending": [],
  "recent_legs": [
   {
    "ticker": "MSFT",
@@ -72,13 +78,13 @@
   "legs": 5,
   "win_rate": 40.0,
   "avg_R": 0.268,
-  "signals": 59,
+  "signals": 67,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 1,
-   "chop": 10,
+   "chop": 11,
    "bear": 0
   }
  },
@@ -126,7 +132,11 @@
   [
    "2026-10-30",
    1001.29
+  ],
+  [
+   "2026-11-02",
+   1000.96
   ]
  ],
- "price_ok": false
+ "price_ok": true
 }
