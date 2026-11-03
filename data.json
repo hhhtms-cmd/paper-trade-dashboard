@@ -1,13 +1,13 @@
 {
- "updated_at": "2026-11-02 16:29 美东",
+ "updated_at": "2026-11-03 16:29 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
  "regime": "chop",
  "regime_cn": "震荡",
- "equity": 1000.96,
- "total_return_pct": 0.1,
- "max_drawdown_pct": -0.26,
+ "equity": 999.1,
+ "total_return_pct": -0.09,
+ "max_drawdown_pct": -0.32,
  "peak_equity": 1002.27,
  "cash": 871.97,
  "positions": [
@@ -16,24 +16,24 @@
    "sector": "Healthcare",
    "shares": 0.2688,
    "entry_price": 155.01,
-   "cur_price": 170.33,
-   "pnl_pct": 9.88,
+   "cur_price": 167.47,
+   "pnl_pct": 8.04,
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": true,
-   "days_held": 13
+   "days_held": 14
   },
   {
    "ticker": "TSLA",
    "sector": "Consumer Cyclical",
    "shares": 0.2061,
    "entry_price": 404.94,
-   "cur_price": 403.82,
-   "pnl_pct": -0.28,
+   "cur_price": 398.5,
+   "pnl_pct": -1.59,
    "stop_price": 392.79,
    "target_price": 441.39,
    "half_taken": false,
-   "days_held": 0
+   "days_held": 1
   }
  ],
  "pending": [],
@@ -78,13 +78,13 @@
   "legs": 5,
   "win_rate": 40.0,
   "avg_R": 0.268,
-  "signals": 67,
+  "signals": 72,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 1,
-   "chop": 11,
+   "chop": 12,
    "bear": 0
   }
  },
@@ -136,6 +136,10 @@
   [
    "2026-11-02",
    1000.96
+  ],
+  [
+   "2026-11-03",
+   999.1
   ]
  ],
  "price_ok": true
