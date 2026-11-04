@@ -1,43 +1,44 @@
 {
- "updated_at": "2026-11-03 16:29 美东",
+ "updated_at": "2026-11-04 16:30 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
  "regime": "chop",
  "regime_cn": "震荡",
- "equity": 999.1,
- "total_return_pct": -0.09,
+ "equity": 999.76,
+ "total_return_pct": -0.02,
  "max_drawdown_pct": -0.32,
  "peak_equity": 1002.27,
- "cash": 871.97,
+ "cash": 952.86,
  "positions": [
   {
    "ticker": "GILD",
    "sector": "Healthcare",
    "shares": 0.2688,
    "entry_price": 155.01,
-   "cur_price": 167.47,
-   "pnl_pct": 8.04,
+   "cur_price": 155.01,
+   "pnl_pct": 0.0,
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": true,
-   "days_held": 14
-  },
-  {
-   "ticker": "TSLA",
-   "sector": "Consumer Cyclical",
-   "shares": 0.2061,
-   "entry_price": 404.94,
-   "cur_price": 398.5,
-   "pnl_pct": -1.59,
-   "stop_price": 392.79,
-   "target_price": 441.39,
-   "half_taken": false,
-   "days_held": 1
+   "days_held": 15
   }
  ],
- "pending": [],
+ "pending": [
+  {
+   "ticker": "TSLA",
+   "signal_date": "2026-11-04",
+   "sector": "Consumer Cyclical"
+  }
+ ],
  "recent_legs": [
+  {
+   "ticker": "TSLA",
+   "exit_date": "2026-11-04",
+   "R": -1.016,
+   "return_pct": -3.048,
+   "reason": "stop"
+  },
   {
    "ticker": "MSFT",
    "exit_date": "2026-10-30",
@@ -75,16 +76,16 @@
   }
  ],
  "stats": {
-  "legs": 5,
-  "win_rate": 40.0,
-  "avg_R": 0.268,
-  "signals": 72,
+  "legs": 6,
+  "win_rate": 33.3,
+  "avg_R": 0.054,
+  "signals": 81,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 1,
-   "chop": 12,
+   "chop": 13,
    "bear": 0
   }
  },
@@ -140,7 +141,11 @@
   [
    "2026-11-03",
    999.1
+  ],
+  [
+   "2026-11-04",
+   999.76
   ]
  ],
- "price_ok": true
+ "price_ok": false
 }
