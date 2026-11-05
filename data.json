@@ -1,15 +1,15 @@
 {
- "updated_at": "2026-11-04 16:30 美东",
+ "updated_at": "2026-11-05 16:29 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
- "regime": "chop",
- "regime_cn": "震荡",
- "equity": 999.76,
- "total_return_pct": -0.02,
- "max_drawdown_pct": -0.32,
+ "regime": "bear",
+ "regime_cn": "熊市",
+ "equity": 995.37,
+ "total_return_pct": -0.46,
+ "max_drawdown_pct": -0.69,
  "peak_equity": 1002.27,
- "cash": 952.86,
+ "cash": 950.32,
  "positions": [
   {
    "ticker": "GILD",
@@ -21,17 +21,18 @@
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": true,
-   "days_held": 15
+   "days_held": 16
   }
  ],
- "pending": [
+ "pending": [],
+ "recent_legs": [
   {
    "ticker": "TSLA",
-   "signal_date": "2026-11-04",
-   "sector": "Consumer Cyclical"
-  }
- ],
- "recent_legs": [
+   "exit_date": "2026-11-05",
+   "R": -1.016,
+   "return_pct": -3.048,
+   "reason": "stop"
+  },
   {
    "ticker": "TSLA",
    "exit_date": "2026-11-04",
@@ -76,17 +77,17 @@
   }
  ],
  "stats": {
-  "legs": 6,
-  "win_rate": 33.3,
-  "avg_R": 0.054,
-  "signals": 81,
+  "legs": 7,
+  "win_rate": 28.6,
+  "avg_R": -0.099,
+  "signals": 93,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 1,
    "chop": 13,
-   "bear": 0
+   "bear": 1
   }
  },
  "equity_curve": [
@@ -145,6 +146,10 @@
   [
    "2026-11-04",
    999.76
+  ],
+  [
+   "2026-11-05",
+   995.37
   ]
  ],
  "price_ok": false
