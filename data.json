@@ -1,13 +1,13 @@
 {
- "updated_at": "2026-11-05 16:29 美东",
+ "updated_at": "2026-11-06 16:29 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
  "regime": "bear",
  "regime_cn": "熊市",
- "equity": 995.37,
- "total_return_pct": -0.46,
- "max_drawdown_pct": -0.69,
+ "equity": 995.18,
+ "total_return_pct": -0.48,
+ "max_drawdown_pct": -0.71,
  "peak_equity": 1002.27,
  "cash": 950.32,
  "positions": [
@@ -21,7 +21,7 @@
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": true,
-   "days_held": 16
+   "days_held": 17
   }
  ],
  "pending": [],
@@ -80,14 +80,14 @@
   "legs": 7,
   "win_rate": 28.6,
   "avg_R": -0.099,
-  "signals": 93,
+  "signals": 98,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 1,
    "chop": 13,
-   "bear": 1
+   "bear": 2
   }
  },
  "equity_curve": [
@@ -150,6 +150,10 @@
   [
    "2026-11-05",
    995.37
+  ],
+  [
+   "2026-11-06",
+   995.18
   ]
  ],
  "price_ok": false
