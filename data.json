@@ -1,43 +1,38 @@
 {
- "updated_at": "2026-11-12 16:29 美东",
+ "updated_at": "2026-11-13 16:29 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
- "regime": "chop",
- "regime_cn": "震荡",
- "equity": 997.76,
- "total_return_pct": -0.22,
- "max_drawdown_pct": -0.71,
+ "regime": "bear",
+ "regime_cn": "熊市",
+ "equity": 992.97,
+ "total_return_pct": -0.7,
+ "max_drawdown_pct": -0.93,
  "peak_equity": 1002.27,
- "cash": 867.33,
+ "cash": 947.79,
  "positions": [
   {
    "ticker": "GILD",
    "sector": "Healthcare",
    "shares": 0.2688,
    "entry_price": 155.01,
-   "cur_price": 167.95,
-   "pnl_pct": 8.35,
+   "cur_price": 155.01,
+   "pnl_pct": 0.0,
    "stop_price": 150.36,
    "target_price": 168.96,
    "half_taken": true,
-   "days_held": 23
-  },
-  {
-   "ticker": "AMD",
-   "sector": "Technology",
-   "shares": 0.1457,
-   "entry_price": 569.56,
-   "cur_price": 585.3,
-   "pnl_pct": 2.76,
-   "stop_price": 552.48,
-   "target_price": 620.83,
-   "half_taken": false,
-   "days_held": 0
+   "days_held": 24
   }
  ],
  "pending": [],
  "recent_legs": [
+  {
+   "ticker": "AMD",
+   "exit_date": "2026-11-13",
+   "R": -1.016,
+   "return_pct": -3.048,
+   "reason": "stop"
+  },
   {
    "ticker": "TSLA",
    "exit_date": "2026-11-05",
@@ -89,17 +84,17 @@
   }
  ],
  "stats": {
-  "legs": 7,
-  "win_rate": 28.6,
-  "avg_R": -0.099,
-  "signals": 106,
+  "legs": 8,
+  "win_rate": 25.0,
+  "avg_R": -0.213,
+  "signals": 107,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 1,
    "chop": 15,
-   "bear": 4
+   "bear": 5
   }
  },
  "equity_curve": [
@@ -182,7 +177,11 @@
   [
    "2026-11-12",
    997.76
+  ],
+  [
+   "2026-11-13",
+   992.97
   ]
  ],
- "price_ok": true
+ "price_ok": false
 }
