@@ -1,31 +1,25 @@
 {
- "updated_at": "2026-11-19 16:29 美东",
+ "updated_at": "2026-11-20 16:29 美东",
  "version": "v1e_r05",
  "status": "running",
  "status_cn": "运行中",
  "regime": "bear",
  "regime_cn": "熊市",
- "equity": 992.56,
- "total_return_pct": -0.74,
+ "equity": 992.51,
+ "total_return_pct": -0.75,
  "max_drawdown_pct": -0.97,
  "peak_equity": 1002.27,
- "cash": 947.79,
- "positions": [
-  {
-   "ticker": "GILD",
-   "sector": "Healthcare",
-   "shares": 0.2688,
-   "entry_price": 155.01,
-   "cur_price": 155.01,
-   "pnl_pct": 0.0,
-   "stop_price": 150.36,
-   "target_price": 168.96,
-   "half_taken": true,
-   "days_held": 30
-  }
- ],
+ "cash": 992.51,
+ "positions": [],
  "pending": [],
  "recent_legs": [
+  {
+   "ticker": "GILD",
+   "exit_date": "2026-11-20",
+   "R": 2.437,
+   "return_pct": 7.312,
+   "reason": "趋势出清(<21DMA)"
+  },
   {
    "ticker": "AMD",
    "exit_date": "2026-11-13",
@@ -84,17 +78,17 @@
   }
  ],
  "stats": {
-  "legs": 8,
-  "win_rate": 25.0,
-  "avg_R": -0.213,
-  "signals": 121,
+  "legs": 9,
+  "win_rate": 33.3,
+  "avg_R": 0.081,
+  "signals": 128,
   "xray_triggers": 0,
   "xray_paused_days": 0,
   "xray_cooldown_left": 0,
   "regime_days": {
    "bull": 1,
    "chop": 15,
-   "bear": 9
+   "bear": 10
   }
  },
  "equity_curve": [
@@ -197,7 +191,11 @@
   [
    "2026-11-19",
    992.56
+  ],
+  [
+   "2026-11-20",
+   992.51
   ]
  ],
- "price_ok": false
+ "price_ok": true
 }
